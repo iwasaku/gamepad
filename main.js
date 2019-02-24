@@ -78,7 +78,11 @@ Game.ctrl = function () {
 
         var pose = gamepad.pose;
         str += "pose: {\n";
-        str += "\"hasOrientation \"" + pose.hasOrientation;
+        if (pose != null) {
+            str += "\"hasOrientation \"" + pose.hasOrientation + "\n";
+        } else {
+            str += "null\n";
+        }
         str += "}\n";
 
         str += "\n ----- \n\n";
