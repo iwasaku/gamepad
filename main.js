@@ -1,3 +1,11 @@
+function getProperties(obj) {
+    var properties = '';
+    for (var prop in obj) {
+        properties += prop + ': ' + obj[prop] + '\n';
+    }
+    return properties;
+}
+
 var Game = {};
 Game.fps = 60;
 Game.str = "";
@@ -85,6 +93,9 @@ Game.ctrl = function () {
         }
         str += "}\n";
 
+        str += "\n ----- \n\n";
+
+        str += getProperties(gamepad);
         str += "\n ----- \n\n";
     }
     Game.str = str;
