@@ -58,11 +58,11 @@ Game.ctrl = function () {
         for (jj = 0; jj < buttonsLen; jj++) {
             var button = buttons[jj];
             if (jj < 10) {
-                str += "   \"" + jj + "\": { ";
+                str += "  \" " + jj + "\": { ";
             } else {
                 str += "  \"" + jj + "\": { ";
             }
-            str += "pressed:" + (button.pressed ? 1 : 0) + " , ";
+            str += "pressed:" + (button.pressed ? "T" : "F") + " , ";
             str += "value:" + button.value + " }\n";
         }
         str += "}\n";
