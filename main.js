@@ -77,7 +77,7 @@ Game.ctrl = function () {
         str += "}\n";
 
         var pose = gamepas.pose;
-        str += "axes: {\n";
+        str += "pose: {\n";
         str += "\"hasOrientation \"" + pose.hasOrientation;
         str += "}\n";
 
