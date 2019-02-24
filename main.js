@@ -58,7 +58,7 @@ Game.ctrl = function () {
         for (jj = 0; jj < buttonsLen; jj++) {
             var button = buttons[jj];
             if (jj < 10) {
-                str += "  \" " + jj + "\": { ";
+                str += "  \"" + jj + "\": { ";
             } else {
                 str += "  \"" + jj + "\": { ";
             }
@@ -75,6 +75,12 @@ Game.ctrl = function () {
             str += axes[jj] + "\n";
         }
         str += "}\n";
+
+        var pose = gamepas.pose;
+        str += "axes: {\n";
+        str += "\"hasOrientation \"" + pose.hasOrientation;
+        str += "}\n";
+
         str += "\n ----- \n\n";
     }
     Game.str = str;
