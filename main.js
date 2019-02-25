@@ -119,7 +119,8 @@ Game.ctrl = function () {
 
 // 描画
 Game.draw = function () {
-    document.getElementById("test").textContent = Game.str;
+    //    document.getElementById("test").textContent = Game.str;
+    document.getElementById("test").innerHTML = Game.str;
 };
 
 // 実行
