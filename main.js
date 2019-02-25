@@ -75,7 +75,7 @@ Game.ctrl = function () {
             var button = buttons[jj];
             strIdx += "<th>" + jj + "</th>";
             strpressed += "<td>" + button.pressed + "</td>";
-            str += "<td>" + button.value + "<td>";
+            strValue += "<td>" + button.value + "<td>";
         }
         str += "<h3>buttons</h3>";
         str += "<table>";
