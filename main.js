@@ -1,11 +1,3 @@
-function getProperties(obj) {
-    var properties = '';
-    for (var prop in obj) {
-        properties += prop + ': ' + obj[prop] + '\n';
-    }
-    return properties;
-}
-
 var Game = {};
 Game.fps = 60;
 Game.str = "";
@@ -24,12 +16,12 @@ Game.run = function () {
 
 // コントロール
 Game.ctrl = function () {
+    var gamepads = navigator.getGamepads();
+    var gamepadsLen = gamepads.length;
     var str = "";
-    var gamepadList = navigator.getGamepads();
-    var gamepadNum = gamepadList.length;
     var ii;
-    for (ii = 0; ii < gamepadNum; ii++) {
-        var gamepad = gamepadList[ii];
+    for (ii = 0; ii < gamepadsLen; ii++) {
+        var gamepad = gamepads[ii];
         if (!gamepad) continue;
 
         str += "<pre>";
@@ -62,18 +54,18 @@ Game.ctrl = function () {
         //axes[3];  // Rレバー上-1.0〜+1.0下
         var buttons = gamepad.buttons;
         var buttonsLen = buttons.length;
-        var strIdx = "<th></th>";
+        var strIdx = "<th>idx</th>";
         var strpressed = "<th>pressed</th>";
         var strValue = "<th>value</th>";
         var jj;
         for (jj = 0; jj < buttonsLen; jj++) {
             var button = buttons[jj];
-            strIdx += "<th style=\"width:200px;\">" + jj + "</th>";
-            strpressed += "<td style=\"width:200px;\">>" + button.pressed + "</td>";
-            strValue += "<td style=\"width:200px;\">>" + button.value + "</td>";
+            strIdx += "<th>" + jj + "</th>";
+            strpressed += "<td>" + button.pressed + "</td>";
+            strValue += "<td>" + button.value + "</td>";
         }
         str += "<h3>buttons</h3>";
-        str += "<table border=1 style=\"table-layout:fixed;\">";
+        str += "<table border=1>";
         str += "<tr>";
         str += strIdx;
         str += "</tr>";
@@ -90,6 +82,10 @@ Game.ctrl = function () {
         var axesLen = axes.length;
         str += "<h3>axes</h3>";
         str += "<table border=1>";
+        str += "<tr>";
+        str += "<th>idx</th>";
+        str += "<td>value</td>";
+        str += "</tr>";
         for (jj = 0; jj < axesLen; jj++) {
             str += "<tr>";
             str += "<th>" + jj + "</th>";
