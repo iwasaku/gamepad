@@ -24,6 +24,7 @@ Game.ctrl = function () {
         var gamepad = gamepads[ii];
         if (!gamepad) continue;
 
+        str += "<h3>info</h3>";
         str += "<pre>";
         str += "index: " + gamepad.index + "\n";
         str += "timestamp: " + gamepad.timestamp + "\n";
@@ -32,26 +33,6 @@ Game.ctrl = function () {
         str += "mapping: \"" + gamepad.mapping + "\"\n";
         str += "</pre>";
 
-        //gamepad.buttons[0].pressed;    //NULL
-        //gamepad.buttons[1].pressed;    //A
-        //gamepad.buttons[2].pressed;    //Y
-        //gamepad.buttons[3].pressed;    //????
-        //gamepad.buttons[4].pressed;    //L
-        //gamepad.buttons[5].pressed;    //R
-        //gamepad.buttons[6].pressed;    //LZ
-        //gamepad.buttons[7].pressed;    //RZ
-        //gamepad.buttons[8].pressed;    //????
-        //gamepad.buttons[9].pressed;    //????
-        //gamepad.buttons[10].pressed;    //L HAT
-        //gamepad.buttons[11].pressed;    //R HAT
-        //gamepad.buttons[12].pressed;    //上
-        //gamepad.buttons[13].pressed;    //下
-        //gamepad.buttons[14].pressed;    //左
-        //gamepad.buttons[15].pressed;    //右
-        //axes[0];  // Lレバー左-1.0〜+1.0右
-        //axes[1];  // Lレバー上-1.0〜+1.0下
-        //axes[2];  // Rレバー左-1.0〜+1.0右
-        //axes[3];  // Rレバー上-1.0〜+1.0下
         var buttons = gamepad.buttons;
         var buttonsLen = buttons.length;
         var strIdx = "<th>idx</th>";
