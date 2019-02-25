@@ -62,18 +62,34 @@ Game.ctrl = function () {
         var buttonsLen = buttons.length;
         var jj;
 
-        str += "buttons: {\n";
+        /*
+        <tr>
+                    <td></td>
+                </tr>
+            </table>
+        */
+        var strIdx = "<th></th>";
+        var strpressed = "<th>pressed</th>";
+        var strValue = "<th>value</th>";
         for (jj = 0; jj < buttonsLen; jj++) {
             var button = buttons[jj];
-            if (jj < 10) {
-                str += "  \"" + jj + "\": { ";
-            } else {
-                str += "  \"" + jj + "\": { ";
-            }
-            str += "pressed:" + (button.pressed ? "T" : "F") + " , ";
-            str += "value:" + button.value + " }\n";
+            strIdx += "<th>" + jj + "</th>";
+            strpressed += "<td>" + button.pressed + "</td>";
+            str += "<td>" + button.value + "<td>";
         }
-        str += "}\n";
+        str += "<h3>buttons</h3>";
+        str += "<table>";
+        str += "<tr>";
+        str += strIdx;
+        str += "</tr>";
+        str += "<tr>";
+        str += strpressed;
+        str += "</tr>";
+        str += "<tr>";
+        str += strValue;
+        str += "</tr>";
+        str += "</table>";
+        str += "<br>";
 
         var axes = gamepad.axes;
         var axesLen = axes.length;
