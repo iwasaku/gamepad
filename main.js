@@ -32,11 +32,13 @@ Game.ctrl = function () {
         var gamepad = gamepadList[ii];
         if (!gamepad) continue;
 
+        str += "<pre>";
         str += "index: " + gamepad.index + "\n";
         str += "timestamp: " + gamepad.timestamp + "\n";
         str += "id: \"" + gamepad.id + "\"\n";
         str += "connected: " + gamepad.connected + "\n";
         str += "mapping: \"" + gamepad.mapping + "\"\n";
+        str += "</pre>";
 
         //gamepad.buttons[0].pressed;    //NULL
         //gamepad.buttons[1].pressed;    //A
@@ -60,25 +62,18 @@ Game.ctrl = function () {
         //axes[3];  // Rレバー上-1.0〜+1.0下
         var buttons = gamepad.buttons;
         var buttonsLen = buttons.length;
-        var jj;
-
-        /*
-        <tr>
-                    <td></td>
-                </tr>
-            </table>
-        */
         var strIdx = "<th></th>";
         var strpressed = "<th>pressed</th>";
         var strValue = "<th>value</th>";
+        var jj;
         for (jj = 0; jj < buttonsLen; jj++) {
             var button = buttons[jj];
             strIdx += "<th>" + jj + "</th>";
-            strpressed += "<td>" + button.pressed + "</td>";
-            strValue += "<td>" + button.value + "<td>";
+            strpressed += "<td width=150>" + button.pressed + "</td>";
+            strValue += "<td>" + button.value + "</td>";
         }
         str += "<h3>buttons</h3>";
-        str += "<table>";
+        str += "<table border=1>";
         str += "<tr>";
         str += strIdx;
         str += "</tr>";
@@ -93,26 +88,15 @@ Game.ctrl = function () {
 
         var axes = gamepad.axes;
         var axesLen = axes.length;
-        str += "axes: {\n";
+        str += "<h3>axes</h3>";
+        str += "<table border=1>";
         for (jj = 0; jj < axesLen; jj++) {
-            str += "  \"" + jj + "\": ";
-            str += axes[jj] + "\n";
+            str += "<tr>";
+            str += "<th>" + jj + "</th>";
+            str += "<td>" + axes[jj] + "</td>";
+            str += "</tr>";
         }
-        str += "}\n";
-
-        var pose = gamepad.pose;
-        str += "pose: {\n";
-        if (pose != null) {
-            str += "\"hasOrientation \"" + pose.hasOrientation + "\n";
-        } else {
-            str += "null\n";
-        }
-        str += "}\n";
-
-        str += "\n ----- \n\n";
-
-        str += getProperties(gamepad);
-        str += "\n ----- \n\n";
+        str += "</table>";
     }
     Game.str = str;
 };
