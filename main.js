@@ -68,12 +68,12 @@ Game.ctrl = function () {
         var jj;
         for (jj = 0; jj < buttonsLen; jj++) {
             var button = buttons[jj];
-            strIdx += "<th>" + jj + "</th>";
-            strpressed += "<td width=150>" + button.pressed + "</td>";
+            strIdx += "<th style=\"width:200px;\">" + jj + "</th>";
+            strpressed += "<td>" + button.pressed + "</td>";
             strValue += "<td>" + button.value + "</td>";
         }
         str += "<h3>buttons</h3>";
-        str += "<table border=1>";
+        str += "<table border=1 style=\"table-layout:fixed;\">";
         str += "<tr>";
         str += strIdx;
         str += "</tr>";
